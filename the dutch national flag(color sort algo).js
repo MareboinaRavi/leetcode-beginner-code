@@ -1,27 +1,23 @@
 function colorSort(arr) {
-  let red = 0,
-    white = 0,
-    blue = arr.length - 1;
-
-  while (white <= blue) {
-    switch (arr[white]) {
+  let low = 0,
+    mid = 0;
+  let high = arr.length - 1;
+  while (mid <= high) {
+    switch (arr[mid]) {
       case 0:
-        [arr[white], arr[red]] = [arr[red], arr[white]];
-        red++;
-        white++;
+        [arr[mid], arr[low]] = [arr[low], arr[mid]];
+        mid++;
+        low++;
         break;
-
       case 1:
-        white++;
+        mid++;
         break;
-
       case 2:
-        [arr[white], arr[blue]] = [arr[blue], arr[white]];
-        blue--;
+        [arr[mid], arr[high]] = [arr[high], arr[mid]];
+        high--;
         break;
     }
   }
-
   return arr;
 }
 
